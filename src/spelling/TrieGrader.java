@@ -48,7 +48,7 @@ public class TrieGrader {
 
 
     private void testAddWords(AutoCompleteDictionaryTrie ac) {
-        feedback.append( "//TESTING ADDING WORDS (addWord, insert)//");
+        feedback.append( "//TESTING ADDING WORDS (addWord, addNode)//");
         appendTestString(1, "Adding first word to dictionary...");
         feedback.append("addWord returned " + ac.addWord("dog") + ".");
 

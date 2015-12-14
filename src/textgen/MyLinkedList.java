@@ -89,7 +89,6 @@ public class MyLinkedList<E> extends AbstractList<E> {
         size++;
     }
 
-
     /**
      * Return the size of the list
      */

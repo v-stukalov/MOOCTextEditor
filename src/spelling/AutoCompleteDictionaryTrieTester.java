@@ -3,13 +3,13 @@
  */
 package spelling;
 
-import static org.junit.Assert.*;
-
-import java.util.LinkedList;
-import java.util.List;
-
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * @author UC San Diego MOOC team
@@ -53,6 +53,7 @@ public class AutoCompleteDictionaryTrieTester {
 	public void testSize()
 	{
 		assertEquals("Testing size for empty dict", 0, emptyDict.size());
+		smallDict.printTree();
 		assertEquals("Testing size for small dict", 8, smallDict.size());
 		assertEquals("Testing size for large dict", 4438, largeDict.size());
 	}

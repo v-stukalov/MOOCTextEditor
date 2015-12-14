@@ -106,7 +106,7 @@ public class NearbyWords implements SpellingSuggest {
 		List<String> retList = new LinkedList<String>();   // words to return
 		 
 		
-		// insert first node
+		// addNode first node
 		queue.add(word);
 		visited.add(word);
 					
