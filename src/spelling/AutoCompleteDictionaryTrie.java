@@ -27,8 +27,9 @@ public class AutoCompleteDictionaryTrie implements Dictionary, AutoComplete {
     public boolean addWord(String word) {
         if (!isWord(word)) {
             addNode(root, word.toLowerCase().toCharArray(), 0);
+            return true;
         }
-        return true;
+        return false;
     }
 
     /**

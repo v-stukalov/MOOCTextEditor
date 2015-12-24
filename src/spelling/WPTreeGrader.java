@@ -41,12 +41,12 @@ public class WPTreeGrader {
             DictionaryLoader.loadDictionary(dict, "data/grader_dict.txt");
             WPTree tree = new WPTree(new NearbyWords(dict)); 
 
-            List<String> path = tree.findPath("pool", "spoon");
+            List<String> path = tree.findPath("shy", "chime");//("pool", "spoon");
 
             feedback += "** Test #1: Testing short path...";
             feedback += "Your path was: " + printPath(path) + ".\n";
 
-            path = tree.findPath("stools", "moon");
+            path = tree.findPath("cake", "stake");//("stools", "moon");
 
             feedback += "** Test #2: Testing long path...";
             feedback += "Your path was: " + printPath(path) + ".\n";

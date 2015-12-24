@@ -34,7 +34,7 @@ public class MarkovTextGeneratorLoL implements MarkovTextGenerator {
      */
     @Override
     public void train(String sourceText) {
-        List<String> words = getTokens(sourceText, "[a-zA-Z,.!?]+");
+        List<String> words = getTokens(sourceText, "[a-zA-Z',.!?]+");
         if (words.isEmpty()) return;
         starter = words.get(0);
         int i = 1;
@@ -91,7 +91,6 @@ public class MarkovTextGeneratorLoL implements MarkovTextGenerator {
         return output.toString();
     }
 
-
     // Can be helpful for debugging
     @Override
     public String toString() {
@@ -107,7 +106,7 @@ public class MarkovTextGeneratorLoL implements MarkovTextGenerator {
      */
     @Override
     public void retrain(String sourceText) {
-        wordList = new LinkedList<>();
+        wordList.clear();
         starter = "";
         train(sourceText);
     }
