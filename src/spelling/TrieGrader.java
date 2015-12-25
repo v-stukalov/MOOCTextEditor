@@ -48,11 +48,11 @@ public class TrieGrader {
 
 
     private void testAddWords(AutoCompleteDictionaryTrie ac) {
-        feedback.append( "//TESTING ADDING WORDS (addWord, addNode)//");
+        feedback.append("//TESTING ADDING WORDS (addWord, addNode)//");
         appendTestString(1, "Adding first word to dictionary...");
         feedback.append("addWord returned " + ac.addWord("dog") + ".");
 
-        appendTestString(2,"Adding two more words and testing size...");
+        appendTestString(2, "Adding two more words and testing size...");
         ac.addWord("downhill");
         ac.addWord("downhiller");
 
@@ -87,17 +87,17 @@ public class TrieGrader {
 
         // get current size before trying to add duplicate word
 
-        appendTestString(4,"Adding duplicate word...");
+        appendTestString(4, "Adding duplicate word...");
         feedback.append("Adding duplicate word returned " + ac.addWord("dog") + ".");
 
         appendTestString(5, "Checking size after try to add duplicate word...");
-        feedback.append("Dict size is " + ac.size()+ ".");
+        feedback.append("Dict size is " + ac.size() + ".");
     }
 
     private void testWordsInOut(AutoCompleteDictionaryTrie ac) {
 
         feedback.append("\n\n\n//TESTING FOR WORDS IN/OUT OF DICTIONARY (isWord)//");
-        appendTestString(6,"Checking empty string...");
+        appendTestString(6, "Checking empty string...");
         // test empty string
         feedback.append("Empty string in dictionary: " + ac.isWord("") + ".");
 
@@ -120,7 +120,6 @@ public class TrieGrader {
         feedback.append("'TeSt' in dictionary: " + ac.isWord("TeSt") + ".");
 
 
-
     }
 
     private void testPredictions(AutoCompleteDictionaryTrie ac) {
@@ -134,7 +133,7 @@ public class TrieGrader {
             feedback.append(s + ", ");
         }
 
-        appendTestString(13,"Testing size of list...");
+        appendTestString(13, "Testing size of list...");
         feedback.append("predictCompletions returned " + auto.size() + " elements.");
 
         auto = ac.predictCompletions("soup", 6);
@@ -170,10 +169,10 @@ public class TrieGrader {
 
         int count = 0;
 
-        count = partialList.contains("testone") ? ++count:count ;
-        count = partialList.contains("testine") ? ++count:count;
-        count = partialList.contains("testell") ? ++count:count;
-        count = partialList.contains("testing") ? ++count:count;
+        count = partialList.contains("testone") ? ++count : count;
+        count = partialList.contains("testine") ? ++count : count;
+        count = partialList.contains("testell") ? ++count : count;
+        count = partialList.contains("testing") ? ++count : count;
 
         feedback.append("Out of 'testone', 'testine', 'testell', and 'testing', " + count + " words were found.");
 

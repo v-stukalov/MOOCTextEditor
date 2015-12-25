@@ -10,8 +10,6 @@ public class DictionaryBST implements Dictionary {
 
     // TODO: Implement the dictionary interface using a TreeSet.  
     // You'll need a constructor here
-
-
     public DictionaryBST() {
         this.dict = new TreeSet<String>();
     }
@@ -29,11 +27,6 @@ public class DictionaryBST implements Dictionary {
         if (!isWord(word.toLowerCase()))
             return dict.add(word.toLowerCase());
         return false;
-
-        //////////////////
-
-
-
     }
 
 

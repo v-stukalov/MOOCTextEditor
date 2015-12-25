@@ -62,6 +62,14 @@ public class NearbyWords implements SpellingSuggest {
         }
     }
 
+    private void register(List<String> currentList, String next, String original, boolean wordsOnly) {
+        if (!currentList.contains(next)
+                && (!wordsOnly || dict.isWord(next))
+                && !original.equals(next)) {
+            currentList.add(next);
+        }
+    }
+
     /**
      * Add to the currentList Strings that are one character insertion away
      * from the input string.
@@ -78,14 +86,6 @@ public class NearbyWords implements SpellingSuggest {
                 sb.insert(i, c);
                 register(currentList, sb.toString(), original, wordsOnly);
             }
-        }
-    }
-
-    private void register(List<String> currentList, String next, String original, boolean wordsOnly) {
-        if (!currentList.contains(next)
-                && (!wordsOnly || dict.isWord(next))
-                && !original.equals(next)) {
-            currentList.add(next);
         }
     }
 
@@ -125,16 +125,16 @@ public class NearbyWords implements SpellingSuggest {
         queue.add(word);
         visited.add(word);
         int threshold = THRESHOLD;
-        while (!queue.isEmpty() && numSuggestions > 0 && threshold-- > 0) {
+        while (!queue.isEmpty()) {
             String next = queue.remove();
-            for (String n : distanceOne(next, false)) {
-                if (!visited.contains(n)) {
+            for (String n : distanceOne(next, true)) {
+                if (numSuggestions < 1 || threshold-- < 1) {
+                    return words;
+                } else if (!visited.contains(n)) {
                     visited.add(n);
                     queue.add(n);
-                    if (dict.isWord(n)) {
-                        words.add(n);
-                        numSuggestions--;
-                    }
+                    words.add(n);
+                    numSuggestions--;
                 }
             }
         }

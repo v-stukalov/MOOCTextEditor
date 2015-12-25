@@ -1,8 +1,7 @@
 package spelling;
 
-import java.util.List;
-import java.util.ArrayList;
 import java.io.PrintWriter;
+import java.util.List;
 
 public class NearbyWordsGraderTwo {
     public static void main(String args[]) {
@@ -43,7 +42,7 @@ public class NearbyWordsGraderTwo {
                 feedback += i + ", ";
             }
             feedback += "\n";
-            
+
         } catch (Exception e) {
             out.println(feedback + "Runtime error: " + e);
             return;
